@@ -1,0 +1,88 @@
+.navbar {
+    min-width: 100vw;
+    min-height: 5vh;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.navbar.scrolled {
+    min-height: 6vh;
+    background: #005B41;
+    transition: all 0.2s ease;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.logo-text {
+    display: inline;
+    margin-right: 3px;
+}
+
+.logo-holder {
+    margin-left: 2vw;
+    font-family: "Unbounded", 'sans-serif';
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.logo-holder.scrolled {
+    color: #F0D020;
+    transition: all 0.2s ease;
+}
+
+.logo-arrow-down-hovered {
+    animation: 0.4s navbar-element-bounce-down;
+}
+
+.links-holder {
+    margin-right: 2vw;
+    display: flex;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.account-link {
+    margin-right: 1vw;
+    cursor: pointer;
+}
+
+.account-link:hover {
+    animation: 0.4s navbar-element-bounce-up;
+}
+
+.settings-link {
+    transform: rotate(0deg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-link:hover {
+    transform: rotate(90deg);
+    transition: all 0.3s ease;
+}
+
+@keyframes navbar-element-bounce-up {
+    0% {transform: translateY(0)}
+    25% {transform: translateY(-3px)}
+    50% {transform: translateY(0)}
+    75% {transform: translateY(-1px)}
+    100% {transform: translateY(0)}
+}
+
+@keyframes navbar-element-bounce-down {
+    0% {transform: translateY(0)}
+    25% {transform: translateY(3px)}
+    50% {transform: translateY(0)}
+    75% {transform: translateY(1px)}
+    100% {transform: translateY(0)}
+}
