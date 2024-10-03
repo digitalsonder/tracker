@@ -1,0 +1,23 @@
+.styled-popper {
+    background-color: var(--dark-theme-accent);
+    color: var(--white-main);
+
+    border-radius: 25px;
+}
+
+.styled-popper-tab {
+    background-color: var(--dark-theme-accent-content);
+    color: var(--white-main);
+    padding: .5rem;
+    border-radius: 25px;
+    min-width: 15vw;
+    margin: 7px;
+}
+
+/* @media (prefers-color-scheme: light) {
+    .styled-popper {
+        background-color: var(--light-theme-background);
+        color: var(--black-main);
+    }
+} */
+  

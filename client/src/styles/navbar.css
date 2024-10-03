@@ -23,6 +23,20 @@ p {
     margin-right: 3px;
 }
 
+.logo-text.scrolled {
+    color: #F0D020;
+    transition: all 0.2s ease;
+}
+
+.logo-arrow-down.scrolled {
+    color: #F0D020;
+    transition: all 0.2s ease;
+}
+
+.link.scrolled {
+    color: #ffffff;
+}
+
 .logo-holder {
     margin-left: 2vw;
     font-family: "Unbounded", 'sans-serif';
@@ -30,11 +44,6 @@ p {
     font-size: 1.2rem;
     transition: all 0.2s ease;
     cursor: pointer;
-}
-
-.logo-holder.scrolled {
-    color: #F0D020;
-    transition: all 0.2s ease;
 }
 
 .logo-arrow-down-hovered {
@@ -69,6 +78,11 @@ p {
 .settings-link:hover {
     transform: rotate(90deg);
     transition: all 0.3s ease;
+}
+
+.logo-popper {
+    background-color: pink;
+    padding: 2rem;
 }
 
 @keyframes navbar-element-bounce-up {
