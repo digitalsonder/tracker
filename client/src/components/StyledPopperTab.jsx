@@ -1,5 +1,5 @@
-export default function StyledPopperTab({id, content}) {
+export default function StyledPopperTab({content}) {
     return (
-        <div className="styled-popper-tab" id={id}>{content}</div>
+        <div className="styled-popper-tab">{content}</div>
     )
 }

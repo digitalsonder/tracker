@@ -1,6 +1,6 @@
 import "./../styles/navbar.css";
 import { useState, useEffect } from "react";
-// import Popper from '@mui/material/Popper';
+import { ClickAwayListener, Popper } from "@mui/material";
 import { StyledPopper } from "./../components";
 
 export default function Navbar() {
@@ -27,19 +27,26 @@ export default function Navbar() {
     const [logoPopperAnchorEl, setLogoPopperAnchorEl] = useState(null);
     const open = Boolean(logoPopperAnchorEl);
 
-    const handleLogoPopperClick = (e) => {
-        setLogoPopperAnchorEl(e.currentTarget);
-    }
+    const handleLogoPopperToggle = (e) => {
+        if (!logoPopperAnchorEl) {
+            setLogoPopperAnchorEl(e.currentTarget);
+        } else {
+            setLogoPopperAnchorEl(null);
+        };
+    };
 
     return (
         <div className={"navbar " + (scrolled ? "scrolled" : null)} >
-            <div className="logo-holder" onClick={handleLogoPopperClick}>
+            <div className="logo-holder" onMouseEnter={handleLogoPopperToggle} onMouseLeave={handleLogoPopperToggle}>
                 <p className={"logo-text color-themed " + (scrolled ? "scrolled" : null)}>
                     Planabite
                 </p>
                 <svg className={"logo-arrow-down color-themed " + (scrolled ? "scrolled" : null)} xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                 </svg>
+                {/* Logo popover */}
+                <StyledPopper open={open} anchorEl={logoPopperAnchorEl} placement='top' 
+                tabs={[{content: '1'}, {content: '2'}]} />
             </div>
             <div className="links-holder">
                 <div className={"link account-link " + (scrolled ? "scrolled" : null)}>
@@ -53,9 +60,6 @@ export default function Navbar() {
                     </svg>
                 </div>
             </div>
-            {/* Logo popover */}
-            {/* <Popper className="popper" open={open} anchorEl={logoPopperAnchorEl}>dasdsad</Popper> */}
-            <StyledPopper open={open} anchorEl={logoPopperAnchorEl} position='left-start' />
         </div>
     );
 };
