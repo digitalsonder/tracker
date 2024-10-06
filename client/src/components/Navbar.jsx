@@ -1,6 +1,6 @@
 import "./../styles/navbar.css";
 import { useState, useEffect } from "react";
-import { ClickAwayListener, Popper } from "@mui/material";
+import { ClickAwayListener, Grow } from "@mui/material";
 import { StyledPopper } from "./../components";
 
 export default function Navbar() {
@@ -23,9 +23,8 @@ export default function Navbar() {
         logoHolder.addEventListener('mouseleave', (e) => {logoArrowDown.classList.remove("logo-arrow-down-hovered")});
     }, []);
 
-    // Logic on link popover open
     const [logoPopperAnchorEl, setLogoPopperAnchorEl] = useState(null);
-    const open = Boolean(logoPopperAnchorEl);
+    const logoPopperOpen = Boolean(logoPopperAnchorEl);
 
     const handleLogoPopperToggle = (e) => {
         if (!logoPopperAnchorEl) {
@@ -35,19 +34,26 @@ export default function Navbar() {
         };
     };
 
+    const handleClickAwayLogo = () => {
+        setLogoPopperAnchorEl(null);
+    };
+
     return (
         <div className={"navbar " + (scrolled ? "scrolled" : null)} >
-            <div className="logo-holder" onMouseEnter={handleLogoPopperToggle} onMouseLeave={handleLogoPopperToggle}>
-                <p className={"logo-text color-themed " + (scrolled ? "scrolled" : null)}>
-                    Planabite
-                </p>
-                <svg className={"logo-arrow-down color-themed " + (scrolled ? "scrolled" : null)} xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                </svg>
-                {/* Logo popover */}
-                <StyledPopper open={open} anchorEl={logoPopperAnchorEl} placement='top' 
-                tabs={[{content: '1'}, {content: '2'}]} />
-            </div>
+            <ClickAwayListener onClickAway={handleClickAwayLogo}>
+                <div className="logo-holder">
+                    <div className="logo" onClick={handleLogoPopperToggle}>
+                        <p className={"logo-text color-themed " + (scrolled ? "scrolled" : null)}>
+                            Planabite
+                        </p>
+                        <svg className={"logo-arrow-down color-themed " + (scrolled ? "scrolled" : null)} xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </div>
+                    <StyledPopper open={logoPopperOpen} anchorEl={logoPopperAnchorEl}
+                    tabs={[{content: '1'}, {content: '2'}]} />
+                </div>
+            </ClickAwayListener>
             <div className="links-holder">
                 <div className={"link account-link " + (scrolled ? "scrolled" : null)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">

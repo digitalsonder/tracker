@@ -1,7 +1,6 @@
 .styled-popper {
     background-color: var(--dark-theme-accent);
     color: var(--white-main);
-
     border-radius: 25px;
 }
 
@@ -20,4 +19,10 @@
         color: var(--black-main);
     }
 } */
+
+@keyframes popper-fade-in {
+    0% {opacity: 0}
+    50% {opacity: 0.5}
+    100% {opacity: 1}
+}
   
