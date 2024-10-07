@@ -9,7 +9,7 @@
     color: var(--white-main);
     padding: .5rem;
     border-radius: 25px;
-    min-width: 15vw;
+    width: 5vw;
     margin: 7px;
 }
 

@@ -1,6 +1,6 @@
 .navbar {
     min-width: 100vw;
-    min-height: 5vh;
+    min-height: 7vh;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,6 @@
 }
 
 .navbar.scrolled {
-    min-height: 6vh;
     background: #005B41;
     transition: all 0.2s ease;
 }
@@ -53,6 +52,7 @@ p {
 .links-holder {
     margin-right: 2vw;
     display: flex;
+    align-items: center;
 }
 
 .link {
